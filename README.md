@@ -61,4 +61,8 @@ SNSの写真を見たユーザーが自分も「行ってみたい」、「食�
 - フロントエンド：HTML / CSS / JavaScript
 - バックエンド：Ruby 3.3.10
 - デプロイ先：Render
-- 使用予定のライブラリ：device / Google Maps API
+- gem：device
+  - ユーザー登録・ログイン機能の実装
+- Web API：Google Maps API
+  - 地図の表示の実装
+  - マーカーにより座標情報を取得し、DBへ保存予定
