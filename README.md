@@ -66,3 +66,6 @@ SNSの写真を見たユーザーが自分も「行ってみたい」、「食�
 - Web API：Google Maps API
   - 地図の表示の実装
   - マーカーにより座標情報を取得し、DBへ保存予定
+
+## 画面遷移図
+Figma：https://www.figma.com/design/e701l3nZtl9kFgETFyWeoz/%E7%84%A1%E9%A1%8C?node-id=0-1&t=XcUrLkVtrZXn0fhu-1
