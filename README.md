@@ -69,3 +69,6 @@ SNSの写真を見たユーザーが自分も「行ってみたい」、「食�
 
 ## 画面遷移図
 Figma：https://www.figma.com/design/e701l3nZtl9kFgETFyWeoz/%E7%84%A1%E9%A1%8C?node-id=0-1&t=XcUrLkVtrZXn0fhu-1
+
+## ER図
+[![Image from Gyazo](https://i.gyazo.com/96e517f6fa28fc59ddddb54c0520ee55.png)](https://gyazo.com/96e517f6fa28fc59ddddb54c0520ee55)
