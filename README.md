@@ -59,7 +59,7 @@ SNSの写真を見たユーザーが自分も「行ってみたい」、「食�
 - フレームワーク：Ruby on Rails 8.1.1
 - データベース：PostgreSQL
 - フロントエンド：HTML / CSS / JavaScript
-- バックエンド：Ruby 3.3.10
+- バックエンド：Ruby 3.3.6
 - デプロイ先：Render
 - gem：device
   - ユーザー登録・ログイン機能の実装
