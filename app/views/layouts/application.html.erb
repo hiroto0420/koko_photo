@@ -24,7 +24,11 @@
   </head>
 
   <body class="min-h-screen flex flex-col">
-    <%= render "shared/header" %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <% if user_signed_in? %>
+      <%= render "shared/header" %>
+    <% end %>
     <main class="flex-grow">
       <%= yield %>
     </main>
