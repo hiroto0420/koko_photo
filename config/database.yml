@@ -94,7 +94,13 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  url: <%= ENV["DATABASE_URL"] %>
+  primary:
+    <<: *database
+    url: <%= ENV["DATABASE_URL"] %>
+
+  cable:
+    <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
   #primary: &primary_production
   #  <<: *default
   #  database: myapp_production
