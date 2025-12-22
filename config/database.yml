@@ -95,7 +95,7 @@ test:
 #
 production:
   primary:
-    <<: *database
+    <<: *default
     url: <%= ENV["DATABASE_URL"] %>
 
   cable:
