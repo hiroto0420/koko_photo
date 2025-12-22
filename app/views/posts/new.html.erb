@@ -1,0 +1,18 @@
+<h1>投稿作成</h1>
+
+<%= form_with model: @post, local: true do |f| %>
+  <% if @post.errors.any? %>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  <div>
+    <%= f.label :ひとこと %><br>
+    <%= f.text_area :body, class: "form" %>
+  </div>
+
+  <%= f.submit '投稿', class: "btn" %>
+<% end %>
