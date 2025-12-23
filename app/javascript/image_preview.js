@@ -1,4 +1,6 @@
 document.addEventListener("turbo:load", () => {
+  const MAX_FILES = 10
+
   const input = document.getElementById("image-input");
   const preview = document.getElementById("image-preview");
 
@@ -6,8 +8,19 @@ document.addEventListener("turbo:load", () => {
 
   let selectedFiles = [];
 
+  input.addEventListener("click", () => {
+    input.value = null;
+  });
+
   input.addEventListener("change", () => {
-    selectedFiles = selectedFiles.concat(Array.from(input.files));
+    const newFiles = Array.from(input.files);
+
+    if (selectedFiles.length + newFiles.length > MAX_FILES) {
+      alert(`画像は最大${MAX_FILES}枚までです`);
+      return;
+    }
+
+    selectedFiles = selectedFiles.concat(newFiles);
 
     const dataTransfer = new DataTransfer();
     selectedFiles.forEach(file => dataTransfer.items.add(file));
