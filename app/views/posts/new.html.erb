@@ -9,17 +9,32 @@
     </ul>
   <% end %>
 
-  <div>
-    <%= f.label :images, "画像", multiple: true %>
-    <%= f.file_field :images, multiple: true, id: "image-input" %>
+  <div class="mb-6">
+    <label
+      for="image-input"
+      class="flex flex-col items-center justify-center w-full h-48
+             border-2 border-dashed rounded-lg cursor-pointer
+             bg-gray-50 hover:bg-gray-100
+             border-gray-300"
+    >
+
+      <p class="text-sm text-gray-500">
+        クリックして画像を選択（複数可）
+      </p>
+
+      <%= f.file_field :images,
+            multiple: true,
+            id: "image-input",
+            class: "hidden" %>
+    </label>
   </div>
 
-  <div id="image-preview"></div>
+  <div id="image-preview" class="grid grid-cols-3 gap-4 mb-6"></div>
 
   <div>
     <%= f.label :body, "ひとこと" %><br>
     <%= f.text_area :body, class: "form" %>
   </div>
 
-  <%= f.submit '投稿', class: "btn" %>
+  <%= f.submit '投稿', class: "btn items-center" %>
 <% end %>
