@@ -1,18 +1,46 @@
-<h1>投稿作成</h1>
+<h2 class="text-xl font-semibold text-center py-10">投稿作成</h2>
 
-<%= form_with model: @post, local: true do |f| %>
-  <% if @post.errors.any? %>
-    <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-    </ul>
+<div class="w-2/3 mx-auto">
+  <%= form_with model: @post, local: true do |f| %>
+    <% if @post.errors.any? %>
+      <ul>
+        <% @post.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <div class="mb-6">
+      <label
+        for="image-input"
+        class="flex flex-col items-center justify-center w-full h-48
+              border-2 border-dashed rounded-lg cursor-pointer
+              bg-gray-50 hover:bg-gray-100
+              border-gray-300"
+      >
+
+        <p class="text-sm text-gray-500">
+          クリックして画像を選択（複数可）
+        </p>
+
+        <%= f.file_field :images,
+              multiple: true,
+              id: "image-input",
+              class: "hidden" %>
+      </label>
+    </div>
+
+    <div id="image-preview" class="grid grid-cols-3 gap-4 mb-6"></div>
+
+    <div>
+      <%= f.text_area :body, class: "form w-full", placeholder: "ひとこと" %>
+    </div>
+
+    <%= f.submit '投稿', class: "btn" %>
   <% end %>
 
-  <div>
-    <%= f.label :ひとこと %><br>
-    <%= f.text_area :body, class: "form" %>
+  <div id="image-modal"
+       class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
+    <img id="modal-image" class="max-w-[90%] max-h-[90%] rounded-lg shadow-lg">
   </div>
-
-  <%= f.submit '投稿', class: "btn" %>
-<% end %>
+</div>

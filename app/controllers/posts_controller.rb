@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.with_attached_images
   end
 
   def new
@@ -12,13 +13,13 @@ class PostsController < ApplicationController
     if @post.save
       redirect_to posts_path, notice: "投稿しました"
     else
-      render :new, status: unprocessable_entity
+      render :new
     end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body, images: [])
   end
 end
