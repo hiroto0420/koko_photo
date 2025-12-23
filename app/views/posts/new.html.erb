@@ -10,7 +10,14 @@
   <% end %>
 
   <div>
-    <%= f.label :ひとこと %><br>
+    <%= f.label :images, "画像", multiple: true %>
+    <%= f.file_field :images, multiple: true, id: "image-input" %>
+  </div>
+
+  <div id="image-preview"></div>
+
+  <div>
+    <%= f.label :body, "ひとこと" %><br>
     <%= f.text_area :body, class: "form" %>
   </div>
 

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def index
+    @posts = Post.with_attached_images
   end
 
   def new
@@ -19,6 +20,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body, images: [])
   end
 end
