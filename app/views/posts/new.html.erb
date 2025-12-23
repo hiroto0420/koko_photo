@@ -1,5 +1,6 @@
-<h1>投稿作成</h1>
+<h2 class="text-xl font-semibold text-center py-10">投稿作成</h2>
 
+<div class="w-2/3 mx-auto">
 <%= form_with model: @post, local: true do |f| %>
   <% if @post.errors.any? %>
     <ul>
@@ -32,9 +33,9 @@
   <div id="image-preview" class="grid grid-cols-3 gap-4 mb-6"></div>
 
   <div>
-    <%= f.label :body, "ひとこと" %><br>
-    <%= f.text_area :body, class: "form" %>
+    <%= f.text_area :body, class: "form w-full", placeholder: "ひとこと" %>
   </div>
 
-  <%= f.submit '投稿', class: "btn items-center" %>
+  <%= f.submit '投稿', class: "btn" %>
 <% end %>
+</div>
