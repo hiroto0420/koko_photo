@@ -3,8 +3,10 @@ document.addEventListener("turbo:load", () => {
 
   const input = document.getElementById("image-input");
   const preview = document.getElementById("image-preview");
+  const modal = document.getElementById("image-modal");
+  const modalImage = document.getElementById("modal-image");
 
-  if(!input || !preview) return;
+  if(!input || !preview || !modal || !modalImage) return;
 
   let selectedFiles = [];
 
@@ -42,10 +44,22 @@ document.addEventListener("turbo:load", () => {
           img.classList.add("ring-2", "ring-blue-500");
         }
         wrapper.appendChild(img);
+        img.addEventListener("click", () => {
+          modalImage.src = e.target.result;
+          modal.classList.remove("hidden");
+          modal.classList.add("flex");
+        });
+
         preview.appendChild(wrapper)
       };
 
       reader.readAsDataURL(file)
     });
+  });
+
+  modal.addEventListener("click", () => {
+    modal.classList.add("hidden");
+    modal.classList.remove("flex");
+    modalImage.src = "";
   });
 });
