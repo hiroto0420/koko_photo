@@ -19,7 +19,7 @@ class PostsController < ApplicationController
               filename: uploaded_file.original_filename,
               content_type: uploaded_file.content_type
             )
-            ImageUploadJob.perform_later('Post', @post.id, blob.id)
+            ImageUploadJob.perform_later("Post", @post.id, blob.id)
           end
         end
       end
