@@ -13,8 +13,14 @@ class PostsController < ApplicationController
     if @post.save
       if post_params[:images].present?
         post_params[:images].reject(&:blank?).each do |uploaded_file|
-          blob = @post.images.attach(uploaded_file).last.blob
-          ImageUploadJob.perform_later('Post', @post.id, blob.id)
+          File.open(uploaded_file.path) do |f|
+            blob = ActiveStorage::Blob.create_and_upload!(
+              io: f,
+              filename: uploaded_file.original_filename,
+              content_type: uploaded_file.content_type
+            )
+            ImageUploadJob.perform_later('Post', @post.id, blob.id)
+          end
         end
       end
       redirect_to posts_path, notice: "投稿しました"
