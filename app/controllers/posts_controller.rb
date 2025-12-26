@@ -11,6 +11,12 @@ class PostsController < ApplicationController
     @post = current_user.posts.build(post_params)
 
     if @post.save
+      if post_params[:images].present?
+        post_params[:images].reject(&:blank?).each do |uploaded_file|
+          blob = @post.images.attach(uploaded_file).last.blob
+          ImageUploadJob.perform_later('Post', @post.id, blob.id)
+        end
+      end
       redirect_to posts_path, notice: "投稿しました"
     else
       render :new
